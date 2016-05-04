@@ -1,5 +1,1 @@
-<<<<<<< HEAD
 {"version":3,"file":"favorite.component.js","sourceRoot":"","sources":["favorite.component.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;YAgBA;gBAAA;oBACI,eAAU,GAAG,KAAK,CAAC;gBAKvB,CAAC;gBAHG,mCAAO,GAAP;oBACI,IAAI,CAAC,UAAU,GAAG,CAAC,IAAI,CAAC,UAAU,CAAC;gBACvC,CAAC;gBAnBL;oBAAC,gBAAS,CAAC;wBACP,QAAQ,EAAE,UAAU;wBACpB,QAAQ,EACR,2QASC;qBACJ,CAAC;;qCAAA;gBAOF,wBAAC;YAAD,CAAC,AAND,IAMC;YAND,iDAMC,CAAA"}
-=======
-{"version":3,"file":"favorite.component.js","sourceRoot":"","sources":["favorite.component.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;YAaA;gBAAA;oBACI,eAAU,GAAG,KAAK,CAAC;gBAKvB,CAAC;gBAHG,mCAAO,GAAP;oBACI,IAAI,CAAC,UAAU,GAAG,CAAC,IAAI,CAAC,UAAU,CAAC;gBACvC,CAAC;gBAhBL;oBAAC,gBAAS,CAAC;wBACT,QAAQ,EAAE,UAAU;wBACpB,QAAQ,EAAE,uLAOT;qBACF,CAAC;;qCAAA;gBAOF,wBAAC;YAAD,CAAC,AAND,IAMC;YAND,iDAMC,CAAA"}
->>>>>>> 6ab130d37d86202af93ab07f507b048a91917655
