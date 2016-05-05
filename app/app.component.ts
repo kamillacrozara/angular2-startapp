@@ -2,6 +2,7 @@ import {Component} from 'angular2/core';
 import {CoursesComponent} from './courses.component'
 import {AuthorsComponent} from './authors.component'
 import {FavoriteComponent} from './favorite.component';
+import {LikeComponent} from './like.component';
 
 @Component({
     selector: 'my-app',
@@ -9,7 +10,13 @@ import {FavoriteComponent} from './favorite.component';
         <h1>Hello Angular</h1>
         <courses></courses>
         <authors></authors>
-        <favorite></favorite>`,
-    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent]
+        <favorite></favorite>
+        <like [totalLikes]="tweet.totalLikes" [isLiked]="tweet.isLiked"></like>`,
+    directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent]
 })
-export class AppComponent { }
+export class AppComponent {
+    tweet = {
+        totalLikes: 10,
+        isLiked: false
+    }
+}

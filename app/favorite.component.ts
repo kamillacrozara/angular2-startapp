@@ -6,7 +6,7 @@ import {Component} from 'angular2/core'
     `
         <h2>Favorite Component</h2>
         <i
-            class="glyphicon glyphicon-heart"
+            class="glyphicon glyphicon-star"
             [class.glyphicon-star-empty]="!isFavorite"
             [class.glyphicon-star]="isFavorite"
             (click)="onClick()">

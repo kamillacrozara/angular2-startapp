@@ -28,7 +28,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 FavoriteComponent = __decorate([
                     core_1.Component({
                         selector: 'favorite',
-                        template: "\n        <h2>Favorite Component</h2>\n        <i\n            class=\"glyphicon glyphicon-heart\"\n            [class.glyphicon-star-empty]=\"!isFavorite\"\n            [class.glyphicon-star]=\"isFavorite\"\n            (click)=\"onClick()\">\n        </i>\n\n    "
+                        template: "\n        <h2>Favorite Component</h2>\n        <i\n            class=\"glyphicon glyphicon-star\"\n            [class.glyphicon-star-empty]=\"!isFavorite\"\n            [class.glyphicon-star]=\"isFavorite\"\n            (click)=\"onClick()\">\n        </i>\n\n    "
                     }), 
                     __metadata('design:paramtypes', [])
                 ], FavoriteComponent);
