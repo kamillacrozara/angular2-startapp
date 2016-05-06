@@ -13,12 +13,16 @@ import {VoteComponent} from './vote.component'
         <authors></authors>
         <favorite></favorite>
         <like [totalLikes]="tweet.totalLikes" [isLiked]="tweet.isLiked"></like>
-        <vote></vote>`,
+        <vote [voteCount]="post.totalVotes"></vote>`,
     directives: [CoursesComponent, AuthorsComponent, FavoriteComponent, LikeComponent, VoteComponent]
 })
 export class AppComponent {
     tweet = {
         totalLikes: 10,
         isLiked: false
+    }
+
+    post = {
+        totalVotes: 10,
     }
 }

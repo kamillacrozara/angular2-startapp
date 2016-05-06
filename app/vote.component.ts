@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core'
+import {Component,Input, Output, EventEmitter} from 'angular2/core'
 
 
 @Component({
@@ -7,12 +7,12 @@ import {Component} from 'angular2/core'
     `
         <h2>Vote component</h2>
         <div class="vote">
-        <i class="glyphicon glyphicon-chevron-up"
-        [class.highlighted]="isUpVoted"
+        <i class="glyphicon glyphicon-chevron-up vote-button"
+        [class.highlighted]="myVote == 1"
         (click)="onUpvote()"></i>
-        <span>{{ totalVotes }}</span>
-        <i class="glyphicon glyphicon-chevron-down"
-        [class.highlighted]="isDownVoted"
+        <span>{{ voteCount }}</span>
+        <i class="glyphicon glyphicon-chevron-down vote-button"
+        [class.highlighted]="myVote == -1"
         (click)="onDownVote()"></i>
         </div>
     `,
@@ -20,11 +20,10 @@ import {Component} from 'angular2/core'
         `
             .vote {
                 width: 20px;
+                text-align: center;
+                font-weight: bold;
             }
-            .glyphicon-chevron-up {
-                cursor: pointer;
-            }
-            .glyphicon-chevron-down {
+            .vote-button {
                 cursor: pointer;
             }
             .highlighted {
@@ -35,19 +34,38 @@ import {Component} from 'angular2/core'
     ]
 })
 export class VoteComponent {
-    totalVotes = 0;
-    isUpVoted = false;
-    isDownVoted = false;
+    @Input() voteCount = 0;
+    @Input() myVote = 0;
+    @Output() vote = new EventEmitter();
 
     onUpvote(){
-        this.isUpVoted = true;
-        this.isDownVoted = false;
-        this.totalVotes += 1;
+        if (this.myVote == 1)
+            return;
+
+        if (this.myVote == 0) {
+            this.voteCount += 1;
+            this.myVote = 1;
+        }
+        if (this.myVote == -1) {
+            this.voteCount += 1;
+            this.myVote = 0;
+        }
+        this.vote.emit({newValue: this.myVote});
     }
 
     onDownVote(){
-        this.isDownVoted = true;
-        this.isUpVoted = false;
-        this.totalVotes -= 1;
+        if (this.myVote == -1)
+            return;
+
+        if (this.myVote == 0) {
+            this.voteCount -= 1;
+            this.myVote = -1;
+        }
+        if (this.myVote == 1) {
+            this.voteCount -= 1;
+            this.myVote = 0;
+        }
+        this.vote.emit({newValue: this.myVote});
+
     }
 }

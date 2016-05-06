@@ -39,11 +39,14 @@ System.register(['angular2/core', './courses.component', './authors.component', 
                         totalLikes: 10,
                         isLiked: false
                     };
+                    this.post = {
+                        totalVotes: 10,
+                    };
                 }
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <h1>Hello Angular</h1>\n        <courses></courses>\n        <authors></authors>\n        <favorite></favorite>\n        <like [totalLikes]=\"tweet.totalLikes\" [isLiked]=\"tweet.isLiked\"></like>\n        <vote></vote>",
+                        template: "\n        <h1>Hello Angular</h1>\n        <courses></courses>\n        <authors></authors>\n        <favorite></favorite>\n        <like [totalLikes]=\"tweet.totalLikes\" [isLiked]=\"tweet.isLiked\"></like>\n        <vote [voteCount]=\"post.totalVotes\"></vote>",
                         directives: [courses_component_1.CoursesComponent, authors_component_1.AuthorsComponent, favorite_component_1.FavoriteComponent, like_component_1.LikeComponent, vote_component_1.VoteComponent]
                     }), 
                     __metadata('design:paramtypes', [])

@@ -20,26 +20,54 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             VoteComponent = (function () {
                 function VoteComponent() {
-                    this.totalVotes = 0;
-                    this.isUpVoted = false;
-                    this.isDownVoted = false;
+                    this.voteCount = 0;
+                    this.myVote = 0;
+                    this.vote = new core_1.EventEmitter();
                 }
                 VoteComponent.prototype.onUpvote = function () {
-                    this.isUpVoted = true;
-                    this.isDownVoted = false;
-                    this.totalVotes += 1;
+                    if (this.myVote == 1)
+                        return;
+                    if (this.myVote == 0) {
+                        this.voteCount += 1;
+                        this.myVote = 1;
+                    }
+                    if (this.myVote == -1) {
+                        this.voteCount += 1;
+                        this.myVote = 0;
+                    }
+                    this.vote.emit({ newValue: this.myVote });
                 };
                 VoteComponent.prototype.onDownVote = function () {
-                    this.isDownVoted = true;
-                    this.isUpVoted = false;
-                    this.totalVotes -= 1;
+                    if (this.myVote == -1)
+                        return;
+                    if (this.myVote == 0) {
+                        this.voteCount -= 1;
+                        this.myVote = -1;
+                    }
+                    if (this.myVote == 1) {
+                        this.voteCount -= 1;
+                        this.myVote = 0;
+                    }
+                    this.vote.emit({ newValue: this.myVote });
                 };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], VoteComponent.prototype, "voteCount", void 0);
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', Object)
+                ], VoteComponent.prototype, "myVote", void 0);
+                __decorate([
+                    core_1.Output(), 
+                    __metadata('design:type', Object)
+                ], VoteComponent.prototype, "vote", void 0);
                 VoteComponent = __decorate([
                     core_1.Component({
                         selector: 'vote',
-                        template: "\n        <h2>Vote component</h2>\n        <div class=\"vote\">\n        <i class=\"glyphicon glyphicon-chevron-up\"\n        [class.highlighted]=\"isUpVoted\"\n        (click)=\"onUpvote()\"></i>\n        <span>{{ totalVotes }}</span>\n        <i class=\"glyphicon glyphicon-chevron-down\"\n        [class.highlighted]=\"isDownVoted\"\n        (click)=\"onDownVote()\"></i>\n        </div>\n    ",
+                        template: "\n        <h2>Vote component</h2>\n        <div class=\"vote\">\n        <i class=\"glyphicon glyphicon-chevron-up vote-button\"\n        [class.highlighted]=\"myVote == 1\"\n        (click)=\"onUpvote()\"></i>\n        <span>{{ voteCount }}</span>\n        <i class=\"glyphicon glyphicon-chevron-down vote-button\"\n        [class.highlighted]=\"myVote == -1\"\n        (click)=\"onDownVote()\"></i>\n        </div>\n    ",
                         styles: [
-                            "\n            .vote {\n                width: 20px;\n            }\n            .glyphicon-chevron-up {\n                cursor: pointer;\n            }\n            .glyphicon-chevron-down {\n                cursor: pointer;\n            }\n            .highlighted {\n                color: orange;\n            }\n\n        "
+                            "\n            .vote {\n                width: 20px;\n                text-align: center;\n                font-weight: bold;\n            }\n            .vote-button {\n                cursor: pointer;\n            }\n            .highlighted {\n                color: orange;\n            }\n\n        "
                         ]
                     }), 
                     __metadata('design:paramtypes', [])
