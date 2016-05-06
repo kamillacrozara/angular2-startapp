@@ -3,7 +3,7 @@ import {Component, EventEmitter, Input} from 'angular2/core'
 @Component({
     selector: 'like',
     template:
-    `   <h2>Like component</h2>
+    `
     <i
         class="glyphicon glyphicon-heart"
         [class.highlighted]="isLiked"

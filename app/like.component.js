@@ -38,7 +38,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                 LikeComponent = __decorate([
                     core_1.Component({
                         selector: 'like',
-                        template: "   <h2>Like component</h2>\n    <i\n        class=\"glyphicon glyphicon-heart\"\n        [class.highlighted]=\"isLiked\"\n        (click)=\"onClick()\">\n    </i>\n    <span>{{ totalLikes }}</span>\n    ",
+                        template: "\n    <i\n        class=\"glyphicon glyphicon-heart\"\n        [class.highlighted]=\"isLiked\"\n        (click)=\"onClick()\">\n    </i>\n    <span>{{ totalLikes }}</span>\n    ",
                         styles: ["\n        .glyphicon-heart {\n            color: #ccc;\n            cursor: pointer;\n        }\n        .highlighted {\n            color: deeppink;\n        }\n\n        "
                         ]
                     }), 
