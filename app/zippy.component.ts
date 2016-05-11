@@ -1,69 +1,58 @@
-import {Component} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 
 
 @Component({
-    selector: 'bs-panel',
+    selector: 'zippy',
+    styles: [`
+        .zippy {
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            width: 900px;
+        }
+
+        .zippy .zippy-title {
+            padding: 20px;
+            font-weight: bold;
+        }
+
+        .zippy .zippy-title:hover{
+            background: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .zippy .zippy-content {
+            padding: 20px;
+        }
+    `],
     template:
         `
-        <div class="panel-group">
-            <div class="panel panel-default">
-                <div class="panel-heading" (click)="onClick1()">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
-                      Collapsible Group Item #1
-                    </a>
-                    <i class="glyphicon  pull-right"
-                    [class.glyphicon-chevron-down]="isHidden1"
-                    [class.glyphicon-chevron-up]="!isHidden1"></i>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in">
-                    <div [hidden]="isHidden1" class="panel-body">
-                        Panel content
-                    </div>
-                </div>
+        <div class="zippy">
+            <div
+            class="zippy-title"
+            (click)="toggle()">
+            {{ title }}
+                <i
+                    class="pull-right glyphicon"
+                    [ngClass]="
+                        {
+                            'glyphicon-chevron-down': isExpanded,
+                            'glyphicon-chevron-up': !isExpanded
+
+                        }">
+                </i>
             </div>
-
-
-            <div class="panel panel-default">
-                <div class="panel-heading" (click)="onClick2()">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
-                      Collapsible Group Item #1
-                    </a>
-                    <i class="glyphicon  pull-right"
-                    [class.glyphicon-chevron-down]="isHidden2"
-                    [class.glyphicon-chevron-up]="!isHidden2"></i>
-                </div>
-                <div id="collapseOne" class="panel-collapse collapse in">
-                    <div [hidden]="isHidden2" class="panel-body">
-                        Panel content
-                    </div>
-                </div>
+            <div [hidden]="isExpanded" class="zippy-content">
+                <ng-content></ng-content>
             </div>
-
         </div>
-
         `,
-    styles: [
-        `
-            .panel {
-                width: 900px;
-            }
-            .panel-heading {
-                cursor: pointer;
-            }
-
-        `
-
-    ]
 })
+
 export class ZippyComponent {
-    isHidden1 = true;
-    isHidden2 = true;
+    isExpanded = true;
+    @Input() title: string;
 
-    onClick1() {
-        this.isHidden1 = !this.isHidden1;
-    }
-
-    onClick2() {
-        this.isHidden2 = !this.isHidden2;
+    toggle(){
+        this.isExpanded = !this.isExpanded;
     }
 }

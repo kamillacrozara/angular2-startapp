@@ -30,7 +30,7 @@ System.register(['angular2/core', './zippy.component', './like.component'], func
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <bs-panel>\n            <div class=\"heading\">\n                This is the heading\n            </div>\n            <div class=\"body\">\n                This is the body\n            </div>\n        </bs-panel>\n        \n        ",
+                        template: "\n        <zippy title=\"This is my zippy component 1\">\n            content of zippy component 1\n        </zippy>\n        <zippy title=\"This is my zippy component 2\">\n            content of zippy component 2\n        </zippy>\n\n        ",
                         directives: [zippy_component_1.ZippyComponent, like_component_1.LikeComponent]
                     }), 
                     __metadata('design:paramtypes', [])

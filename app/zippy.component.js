@@ -20,22 +20,20 @@ System.register(['angular2/core'], function(exports_1, context_1) {
         execute: function() {
             ZippyComponent = (function () {
                 function ZippyComponent() {
-                    this.isHidden1 = true;
-                    this.isHidden2 = true;
+                    this.isExpanded = true;
                 }
-                ZippyComponent.prototype.onClick1 = function () {
-                    this.isHidden1 = !this.isHidden1;
+                ZippyComponent.prototype.toggle = function () {
+                    this.isExpanded = !this.isExpanded;
                 };
-                ZippyComponent.prototype.onClick2 = function () {
-                    this.isHidden2 = !this.isHidden2;
-                };
+                __decorate([
+                    core_1.Input(), 
+                    __metadata('design:type', String)
+                ], ZippyComponent.prototype, "title", void 0);
                 ZippyComponent = __decorate([
                     core_1.Component({
-                        selector: 'bs-panel',
-                        template: "\n        <div class=\"panel-group\">\n            <div class=\"panel panel-default\">\n                <div class=\"panel-heading\" (click)=\"onClick1()\">\n                    <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\">\n                      Collapsible Group Item #1\n                    </a>\n                    <i class=\"glyphicon  pull-right\"\n                    [class.glyphicon-chevron-down]=\"isHidden1\"\n                    [class.glyphicon-chevron-up]=\"!isHidden1\"></i>\n                </div>\n                <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n                    <div [hidden]=\"isHidden1\" class=\"panel-body\">\n                        Panel content\n                    </div>\n                </div>\n            </div>\n\n\n            <div class=\"panel panel-default\">\n                <div class=\"panel-heading\" (click)=\"onClick2()\">\n                    <a class=\"accordion-toggle\" data-toggle=\"collapse\" data-parent=\"#accordion\">\n                      Collapsible Group Item #1\n                    </a>\n                    <i class=\"glyphicon  pull-right\"\n                    [class.glyphicon-chevron-down]=\"isHidden2\"\n                    [class.glyphicon-chevron-up]=\"!isHidden2\"></i>\n                </div>\n                <div id=\"collapseOne\" class=\"panel-collapse collapse in\">\n                    <div [hidden]=\"isHidden2\" class=\"panel-body\">\n                        Panel content\n                    </div>\n                </div>\n            </div>\n\n        </div>\n\n        ",
-                        styles: [
-                            "\n            .panel {\n                width: 900px;\n            }\n            .panel-heading {\n                cursor: pointer;\n            }\n\n        "
-                        ]
+                        selector: 'zippy',
+                        styles: ["\n        .zippy {\n            border: 1px solid #ccc;\n            border-radius: 2px;\n            width: 900px;\n        }\n\n        .zippy .zippy-title {\n            padding: 20px;\n            font-weight: bold;\n        }\n\n        .zippy .zippy-title:hover{\n            background: #f0f0f0;\n            cursor: pointer;\n        }\n\n        .zippy .zippy-content {\n            padding: 20px;\n        }\n    "],
+                        template: "\n        <div class=\"zippy\">\n            <div\n            class=\"zippy-title\"\n            (click)=\"toggle()\">\n            {{ title }}\n                <i\n                    class=\"pull-right glyphicon\"\n                    [ngClass]=\"\n                        {\n                            'glyphicon-chevron-down': isExpanded,\n                            'glyphicon-chevron-up': !isExpanded\n\n                        }\">\n                </i>\n            </div>\n            <div [hidden]=\"isExpanded\" class=\"zippy-content\">\n                <ng-content></ng-content>\n            </div>\n        </div>\n        ",
                     }), 
                     __metadata('design:paramtypes', [])
                 ], ZippyComponent);

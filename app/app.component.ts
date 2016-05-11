@@ -5,16 +5,14 @@ import {LikeComponent} from './like.component';
 @Component({
     selector: 'my-app',
     template:
-        `
-        <bs-panel>
-            <div class="heading">
-                This is the heading
-            </div>
-            <div class="body">
-                This is the body
-            </div>
-        </bs-panel>
-        
+    `
+        <zippy title="This is my zippy component 1">
+            content of zippy component 1
+        </zippy>
+        <zippy title="This is my zippy component 2">
+            content of zippy component 2
+        </zippy>
+
         `,
     directives: [ZippyComponent, LikeComponent]
 })
