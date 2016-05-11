@@ -1,13 +1,22 @@
 import {Component} from 'angular2/core';
-import {TweetComponent} from './tweet.component';
+import {ZippyComponent} from './zippy.component';
+import {LikeComponent} from './like.component';
 
 @Component({
     selector: 'my-app',
     template:
         `
-        <tweet></tweet>
+        <bs-panel>
+            <div class="heading">
+                This is the heading
+            </div>
+            <div class="body">
+                This is the body
+            </div>
+        </bs-panel>
+        
         `,
-    directives: [TweetComponent]
+    directives: [ZippyComponent, LikeComponent]
 })
 export class AppComponent {
 }

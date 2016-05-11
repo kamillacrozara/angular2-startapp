@@ -1,4 +1,4 @@
-System.register(['angular2/core', './tweet.component'], function(exports_1, context_1) {
+System.register(['angular2/core', './zippy.component', './like.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,15 +10,18 @@ System.register(['angular2/core', './tweet.component'], function(exports_1, cont
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, tweet_component_1;
+    var core_1, zippy_component_1, like_component_1;
     var AppComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             },
-            function (tweet_component_1_1) {
-                tweet_component_1 = tweet_component_1_1;
+            function (zippy_component_1_1) {
+                zippy_component_1 = zippy_component_1_1;
+            },
+            function (like_component_1_1) {
+                like_component_1 = like_component_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -27,8 +30,8 @@ System.register(['angular2/core', './tweet.component'], function(exports_1, cont
                 AppComponent = __decorate([
                     core_1.Component({
                         selector: 'my-app',
-                        template: "\n        <tweet></tweet>\n        ",
-                        directives: [tweet_component_1.TweetComponent]
+                        template: "\n        <bs-panel>\n            <div class=\"heading\">\n                This is the heading\n            </div>\n            <div class=\"body\">\n                This is the body\n            </div>\n        </bs-panel>\n        \n        ",
+                        directives: [zippy_component_1.ZippyComponent, like_component_1.LikeComponent]
                     }), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
