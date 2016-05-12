@@ -1,20 +1,14 @@
 import {Component} from 'angular2/core';
-import {ZippyComponent} from './zippy.component';
-import {LikeComponent} from './like.component';
+import {ContactFormComponent} from './contact-form.component';
 
 @Component({
     selector: 'my-app',
     template:
     `
-        <zippy title="This is my zippy component 1">
-            content of zippy component 1
-        </zippy>
-        <zippy title="This is my zippy component 2">
-            content of zippy component 2
-        </zippy>
+        <contact-form></contact-form>
 
         `,
-    directives: [ZippyComponent, LikeComponent]
+    directives: [ContactFormComponent]
 })
 export class AppComponent {
 }
