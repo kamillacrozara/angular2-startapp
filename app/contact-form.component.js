@@ -29,7 +29,7 @@ System.register(['angular2/core'], function(exports_1, context_1) {
                         selector: 'contact-form',
                         templateUrl: 'app/contact-form.component.html',
                         styles: [
-                            "\n        form {\n            width: 900px;\n            padding-left: 40px;\n            padding-top: 40px;\n        }\n        .ng-\u00AD\u2010touched.ng-\u00AD\u2010invalid\n        {\n            border:\t1px solid red;\n        }\n        "
+                            "\n        form {\n            width: 900px;\n            padding-left: 40px;\n            padding-top: 40px;\n        }\n        .ng\u2010invalid.ng\u2010touched {\n            border:\t1px solid red;\n        }\n        "
                         ]
                     }), 
                     __metadata('design:paramtypes', [])

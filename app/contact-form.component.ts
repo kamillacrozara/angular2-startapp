@@ -10,8 +10,7 @@ import {Component} from 'angular2/core';
             padding-left: 40px;
             padding-top: 40px;
         }
-        .ng-­‐touched.ng-­‐invalid
-        {
+        .ng‐invalid.ng‐touched {
             border:	1px solid red;
         }
         `

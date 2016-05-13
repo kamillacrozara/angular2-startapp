@@ -6,15 +6,15 @@
             placeholder="First Name"
             #firstName="ngForm"
             ngControl="firstName"
-            required minlength="3">
-        <div *ngIf="firstName.touched && !firstName.valid">
+            required minlength="4">
+        <div *ngIf="firstName.touched && firstName.errors">
             <div *ngIf="firstName.errors.required"
                 class="alert alert-danger">
                 Name is required.
             </div>
             <div *ngIf="firstName.errors.minlength"
                 class="alert alert-danger">
-                Name should be 3 characters minimum.
+                Name should be {{ firstName.errors.minlength.requiredLength }} characters minimum.
             </div>
 
         </div>
@@ -28,7 +28,7 @@
             #email="ngForm"
             ngControl="email"
             required minlength="3">
-        <div *ngIf="email.touched && !email.valid">
+        <div *ngIf="email.touched && email.errors">
             <div *ngIf="email.errors.required"
                 class="alert alert-danger">
                 Email is required.
