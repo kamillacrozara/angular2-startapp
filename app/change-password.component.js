@@ -26,16 +26,19 @@ System.register(['angular2/core', 'angular2/common', './ChangePasswordValidators
         execute: function() {
             ChangePasswordForm = (function () {
                 function ChangePasswordForm(fb) {
-                    this.form = common_1.ControlGroup;
-                    debugger;
-                    fb.group({
+                    this.form = fb.group({
                         currentPwd: ['', common_1.Validators.compose([
                                 common_1.Validators.required,
                                 ChangePasswordValidators_1.ChangePasswordValidators.cannotContainSpace
                             ])],
-                        newPwd: ['', common_1.Validators.required],
-                        confirmPwd: ['', common_1.Validators.required]
-                    });
+                        newPwd: ['', common_1.Validators.compose([
+                                common_1.Validators.required,
+                                ChangePasswordValidators_1.ChangePasswordValidators.cannotContainSpace])],
+                        confirmPwd: ['', common_1.Validators.compose([
+                                common_1.Validators.required,
+                                ChangePasswordValidators_1.ChangePasswordValidators.cannotContainSpace,
+                            ])],
+                    }, { validator: ChangePasswordValidators_1.ChangePasswordValidators.passwordMustMatch });
                 }
                 ChangePasswordForm.prototype.changePwd = function () {
                     console.log("On Submit");

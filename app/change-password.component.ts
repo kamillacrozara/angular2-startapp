@@ -18,18 +18,22 @@ import {ChangePasswordValidators} from './ChangePasswordValidators'
 
 })
 export class ChangePasswordForm{
-    form = ControlGroup;
+    form: ControlGroup;
 
     constructor(fb: FormBuilder){
-        debugger;
-        fb.group({
+        this.form = fb.group({
             currentPwd: ['', Validators.compose([
                     Validators.required,
                     ChangePasswordValidators.cannotContainSpace
                 ])],
-            newPwd: ['', Validators.required],
-            confirmPwd: ['', Validators.required]
-        })
+            newPwd: ['', Validators.compose([
+                Validators.required,
+                ChangePasswordValidators.cannotContainSpace])],
+            confirmPwd: ['', Validators.compose([
+                Validators.required,
+                ChangePasswordValidators.cannotContainSpace,
+            ])],
+        }, {validator: ChangePasswordValidators.passwordMustMatch})
 
     }
 

@@ -13,17 +13,10 @@ System.register([], function(exports_1, context_1) {
                         return { cannotContainSpace: true };
                     return null;
                 };
-                ChangePasswordValidators.passwordMustMatch = function (group) {
-                    var newPwd = group.find('newPwd').value;
-                    var confirmPwd = group.find('confirmPwd').value;
-                    if (newPwd != confirmPwd)
-                        return { passwordMustMatch: true };
-                    return null;
-                };
                 return ChangePasswordValidators;
             }());
             exports_1("ChangePasswordValidators", ChangePasswordValidators);
         }
     }
 });
-//# sourceMappingURL=ChangePasswordValidators.js.map
+//# sourceMappingURL=change-password-validators.js.map
